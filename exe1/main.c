@@ -13,7 +13,7 @@ uint64_t future_time = 0;
 void btn_callback(uint gpio, uint32_t events) {
     if (events == 0x4) { // fall edge
         if(flag_f_r){
-
+            gpio_put(LED_PIN_R, 0);
             flag_f_r = 0;
         }else{
             flag_f_r = 1;
