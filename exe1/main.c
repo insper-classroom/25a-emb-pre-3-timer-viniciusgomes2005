@@ -8,7 +8,6 @@ const int BTN_PIN_R = 28;
 const int LED_PIN_R = 4;
 
 volatile int flag_f_r = 0;
-uint64_t future_time = 0;
 
 void btn_callback(uint gpio, uint32_t events) {
     if (events == 0x4) { // fall edge
@@ -23,6 +22,7 @@ void btn_callback(uint gpio, uint32_t events) {
 }
 
 int main() {
+    uint64_t future_time = 0;
     stdio_init_all();
     gpio_init(LED_PIN_R);
     gpio_set_dir(LED_PIN_R, GPIO_OUT);
